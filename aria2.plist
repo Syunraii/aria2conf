@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>aria2</string>
+    <key>ProgramArguments</key>
+    <array>
+        <!-- put aria2c addr in here ,like ⬇-->
+        <string>/opt/homebrew/Cellar/aria2/1.36.0_1/bin/aria2c</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <!-- downlonads dir  -->
+    <string>/Users/xxxx/Downloads/aria2Downloads</string>
+</dict>
+</plist>
