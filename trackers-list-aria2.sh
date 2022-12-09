@@ -1,22 +1,33 @@
 #!/bin/bash
 #trackers-list-aria2.sh
 
-# aria2 设置文件路径
+# aria2 设置文件路径 改为自己的路径 
 CONF=${HOME}/.aria2/aria2.conf
 
+# 推荐 大佬整合的下各类资源
+## https://github.com/ngosang/trackerslist
+trackers1 = trackers_best.txt
+# trackers1 = tracker_all.txt
+# trackers1 = tracker_udp.txt
+# trackers1 = tracker_http.txt
+# trackers1 = tracker_https.txt
+#downloadfile=https://raw.githubusercontent.com/ngosang/trackerslist/master/${}
 
-#设置选择的 trackerlist （可选 all_aria2.txt, best_aria2.txt, http_aria2.txt）
-trackerfile=all_aria2.txt
-
-# 推荐
-#downloadfile=https://raw.githubusercontent.com/ngosang/trackerslist/master/${trackerfile}
-# downloadfile=https://trackerslist.com/${trackerfile}
+## https://github.com/XIU2/TrackersListCollection
+trackers2 = best.txt
+# trackers2 = all.txt
+# trackers2 = http.txt
+# downloadfile=https://jsd.cdn.zzko.cn/gh/XIU2/TrackersListCollection/${trackers2}
 
 # 主要下载动漫
-trackerfile = AT_best.txt
-downloadfile=https://github.com/DeSireFire/animeTrackerList/blob/master/${trackerfile}
-
-
+# https://github.com/DeSireFire/animeTrackerList
+tracker3 = AT_best.txt
+# tracker3 = AT_all.txt
+# tracker3 = AT_all_ip.txt
+# tracker3 = AT_all_udp.txt
+# tracker3 = AT_all_http.txt
+# tracker3 = AT_all_https.txt
+downloadfile=https://github.com/DeSireFire/animeTrackerList/blob/master/${tracker3}
 
 
 list=$(curl -fsSL ${downloadfile})
