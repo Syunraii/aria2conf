@@ -14,7 +14,7 @@ trackerfile=all_aria2.txt
 
 # 主要下载动漫
 trackerfile = AT_best.txt
-downloadfile=https://github.com/DeSireFire/animeTrackerList/blob/master/${AT_best.txt}
+downloadfile=https://github.com/DeSireFire/animeTrackerList/blob/master/${trackerfile}
 
 
 
