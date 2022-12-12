@@ -9,8 +9,12 @@ trackerfile=all_aria2.txt
 downloadfile=https://trackerslist.com/${trackerfile}
 
 # 推荐 大佬整合的下各类资源 需要自己写正则匹配
+# 设置的bt-trackers 格式为 1tracker,2tracker,3tracker
+# 大多数网站提供的都是 1tracker \n \n 2tracker \n \n 3tracker \n \n整齐排列
+# 故需要将换行符替换为逗号,才行，总之需要将格式弄成一行
+
 ## https://github.com/ngosang/trackerslist
-# trackers1=trackers_best.txt
+#trackers1=trackers_best.txt
 # trackers1=tracker_all.txt
 # trackers1=tracker_udp.txt
 # trackers1=tracker_http.txt
@@ -24,7 +28,7 @@ downloadfile=https://trackerslist.com/${trackerfile}
 # downloadfile=https://jsd.cdn.zzko.cn/gh/XIU2/TrackersListCollection/${trackers2}
 
 # https://github.com/DeSireFire/animeTrackerList
-# tracker3=AT_best.txt
+#tracker3=AT_best.txt
 # tracker3=ATaria2_all.txt
 # tracker3=ATaria2_all_udp.txt
 # tracker3=ATaria2_all_http.txt
@@ -32,7 +36,7 @@ downloadfile=https://trackerslist.com/${trackerfile}
 # tracker3=ATaria2_all_ws.txt
 # tracker3=ATaria2_best_ip.txt
 # tracker3=ATaria2_all_ip.txt
-# downloadfile=https://cdn.jsdelivr.net/gh/DeSireFire/animeTrackerList/${tracker}
+# downloadfile=https://cdn.jsdelivr.net/gh/DeSireFire/animeTrackerList/${tracker3}
 
 
 echo -e "链接:${downloadfile}"
@@ -42,6 +46,8 @@ if ! grep -q "bt-tracker" "${CONF}" ; then
     echo -e "\nbt-tracker=${list}" >> "${CONF}"
 else
     echo -e "\033[34m==> 更新 bt-tracker 服务器信息.....\033[0m"
+    # 这一步只是将bt-tracker匹配并替换成bt-tracker=${trackerlist},并没有对list内容进行更改
+    # 需要自己正则匹配删除多余的东西(空格和换行)
     sed -i '' "s@bt-tracker.*@bt-tracker=${list}@g" "${CONF}"
     echo -e "更新完毕"
 fi
