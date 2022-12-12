@@ -27,6 +27,8 @@ downloadfile=https://trackerslist.com/${trackerfile}
 # trackers2=http.txt
 # downloadfile=https://jsd.cdn.zzko.cn/gh/XIU2/TrackersListCollection/${trackers2}
 
+
+# 主要下动漫用的
 # https://github.com/DeSireFire/animeTrackerList
 #tracker3=AT_best.txt
 # tracker3=ATaria2_all.txt
@@ -46,8 +48,14 @@ if ! grep -q "bt-tracker" "${CONF}" ; then
     echo -e "\nbt-tracker=${list}" >> "${CONF}"
 else
     echo -e "\033[34m==> 更新 bt-tracker 服务器信息.....\033[0m"
-    # 这一步只是将bt-tracker匹配并替换成bt-tracker=${trackerlist},并没有对list内容进行更改
-    # 需要自己正则匹配删除多余的东西(空格和换行)
+    # 删除空白行
+    sed -i '/^$/d' "${list}"
+    # win 将句尾换行符号\n替换为,
+    sed -i ':label;N;$!blabel;s/\n/,/g' "${list}"
+    # mac 还未测试
+    # sed -n -e 'H;${x;s/\n//g;p;}' "${input}"
+
+    # 将在{CONF}中匹配到以bt-tracker开头的该行所有内容替换为bt-tracker={list内容} 
     sed -i '' "s@bt-tracker.*@bt-tracker=${list}@g" "${CONF}"
     echo -e "更新完毕"
 fi
