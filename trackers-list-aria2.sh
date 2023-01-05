@@ -59,6 +59,9 @@ else
     # sed -i ':label;N;s/\n/,/g;$!blabel' "${list}"
     # sed -i ':label;$!N;s/\n/,/g;blabel' "${list}"
 
+    # mac 还未测试
+    # sed -i '' -n -e 'H;${x;s/\n/,/g;p;}' "${input}"
+
     # 将在{CONF}中匹配到以bt-tracker开头的该行所有内容替换为bt-tracker={list内容} 
     sed -i '' "s@bt-tracker.*@bt-tracker=${list}@g" "${CONF}"
     echo -e "更新完毕"
