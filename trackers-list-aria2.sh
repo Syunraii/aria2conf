@@ -11,7 +11,7 @@ downloadfile=https://trackerslist.com/${trackerfile}
 # 推荐 大佬整合的下各类资源 需要自己写正则匹配
 # 设置的bt-trackers 格式为 1tracker,2tracker,3tracker
 # 大多数网站提供的都是 1tracker \n \n 2tracker \n \n 3tracker \n \n整齐排列
-# 故需要将换行符替换为逗号,才行，总之需要将格式弄成一行
+# 故需要将换行符替换为逗号才行，总之需要将格式弄成一行
 
 ## https://github.com/ngosang/trackerslist
 #trackers1=trackers_best.txt
@@ -48,12 +48,16 @@ if ! grep -q "bt-tracker" "${CONF}" ; then
     echo -e "\nbt-tracker=${list}" >> "${CONF}"
 else
     echo -e "\033[34m==> 更新 bt-tracker 服务器信息.....\033[0m"
+    # win/linux bash环境下
     # 删除空白行
     sed -i '/^$/d' "${list}"
-    # win 将句尾换行符号\n替换为,
-    sed -i ':label;N;$!blabel;s/\n/,/g' "${list}"
-    # mac 还未测试
-    # sed -n -e 'H;${x;s/\n//g;p;}' "${input}"
+    # sed '/^[[:space:]]*$/d' ${list}
+
+    # 将句尾换行符号\n替换为,
+    sed -i ':label;N;s/\n/,/g;blabel' "${list}"
+    # sed -i ':label;N;s/\n/,/g;tlabel' "${list}"
+    # sed -i ':label;N;s/\n/,/g;$!blabel' "${list}"
+    # sed -i ':label;$!N;s/\n/,/g;blabel' "${list}"
 
     # 将在{CONF}中匹配到以bt-tracker开头的该行所有内容替换为bt-tracker={list内容} 
     sed -i '' "s@bt-tracker.*@bt-tracker=${list}@g" "${CONF}"
