@@ -48,20 +48,9 @@ if ! grep -q "bt-tracker" "${CONF}" ; then
     echo -e "\nbt-tracker=${list}" >> "${CONF}"
 else
     echo -e "\033[34m==> 更新 bt-tracker 服务器信息.....\033[0m"
-    # win/linux bash环境下
-    # 删除空白行
-    sed -i '/^$/d' "${list}"
-    # sed '/^[[:space:]]*$/d' ${list}
-
-    # 将句尾换行符号\n替换为,
-    sed -i ':label;N;s/\n/,/g;blabel' "${list}"
-    # sed -i ':label;N;s/\n/,/g;tlabel' "${list}"
-    # sed -i ':label;N;s/\n/,/g;$!blabel' "${list}"
-    # sed -i ':label;$!N;s/\n/,/g;blabel' "${list}"
-
-    # mac 还未测试
-    # sed -i '' -n -e 'H;${x;s/\n/,/g;p;}' "${input}"
-
+    sed -i '' '/^$/d' "${list}"
+    sed -i '' -n -e 'H;${x;s/\n/,/g;p;}' "${list}"
+    sed -i '' -e '1s/^.//' "${list}"
     # 将在{CONF}中匹配到以bt-tracker开头的该行所有内容替换为bt-tracker={list内容} 
     sed -i '' "s@bt-tracker.*@bt-tracker=${list}@g" "${CONF}"
     echo -e "更新完毕"
