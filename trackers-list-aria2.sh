@@ -3,33 +3,32 @@
 # aria2 设置文件路径
 CONF=${HOME}/.aria2/aria2.conf
 
-
-#设置选择的 trackerlist （可选 all_aria2.txt, best_aria2.txt, http_aria2.txt）
-trackerfile=all_aria2.txt
-downloadfile=https://trackerslist.com/${trackerfile}
-
 # 推荐 大佬整合的下各类资源 需要自己写正则匹配
-# 设置的bt-trackers 格式为 1tracker,2tracker,3tracker
-# 大多数网站提供的都是 1tracker \n \n 2tracker \n \n 3tracker \n \n整齐排列
+# 由于aria2命令行设置的bt-trackers 格式为 1tracker,2tracker,3tracker
+# 但大多数网站提供的都是 1tracker \n \n 2tracker \n \n 3tracker \n \n整齐换行排列
 # 故需要将换行符替换为逗号才行，总之需要将格式弄成一行
 
-## https://github.com/ngosang/trackerslist
-# trackers1=trackers_best.txt
-# trackers1=trackers_all.txt
-# downloadfile=https://raw.githubusercontent.com/ngosang/trackerslist/master/${trackers1}
+
+#设置选择的 trackerlist （可选 all_aria2.txt, best_aria2.txt, http_aria2.txt）
+# 同下XIU2
+trackerfile=all_aria2.txt
+downloadfile=https://trackerslist.com/${trackerfile}
 
 ## https://github.com/XIU2/TrackersListCollection
 # trackers2=best.txt
 # trackers2=all.txt
 # downloadfile=https://cf.trackerslist.com/${trackers2}
 
+## https://github.com/ngosang/trackerslist
+# trackers1=trackers_best.txt
+# trackers1=trackers_all.txt
+# downloadfile=https://raw.githubusercontent.com/ngosang/trackerslist/master/${trackers1}
 
-# 主要下动漫用的
+# 这个主要下冻鳗用的
 # https://github.com/DeSireFire/animeTrackerList
 # tracker3=ATaria2_best.txt
 # tracker3=ATaria2_all.txt
 # downloadfile=https://cdn.jsdelivr.net/gh/DeSireFire/animeTrackerList/${tracker3}
-
 
 echo -e "链接:${downloadfile}"
 list=$(curl -fsSL ${downloadfile})
