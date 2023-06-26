@@ -14,30 +14,20 @@ downloadfile=https://trackerslist.com/${trackerfile}
 # 故需要将换行符替换为逗号才行，总之需要将格式弄成一行
 
 ## https://github.com/ngosang/trackerslist
-#trackers1=trackers_best.txt
-# trackers1=tracker_all.txt
-# trackers1=tracker_udp.txt
-# trackers1=tracker_http.txt
-# trackers1=tracker_https.txt
+# trackers1=trackers_best.txt
+# trackers1=trackers_all.txt
 # downloadfile=https://raw.githubusercontent.com/ngosang/trackerslist/master/${trackers1}
 
 ## https://github.com/XIU2/TrackersListCollection
-#trackers2=best.txt
+# trackers2=best.txt
 # trackers2=all.txt
-# trackers2=http.txt
-# downloadfile=https://jsd.cdn.zzko.cn/gh/XIU2/TrackersListCollection/${trackers2}
+# downloadfile=https://cf.trackerslist.com/${trackers2}
 
 
 # 主要下动漫用的
 # https://github.com/DeSireFire/animeTrackerList
-#tracker3=AT_best.txt
+# tracker3=ATaria2_best.txt
 # tracker3=ATaria2_all.txt
-# tracker3=ATaria2_all_udp.txt
-# tracker3=ATaria2_all_http.txt
-# tracker3=ATaria2_all_https.txt
-# tracker3=ATaria2_all_ws.txt
-# tracker3=ATaria2_best_ip.txt
-# tracker3=ATaria2_all_ip.txt
 # downloadfile=https://cdn.jsdelivr.net/gh/DeSireFire/animeTrackerList/${tracker3}
 
 
